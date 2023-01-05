@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-# STAT 540 - Seminar 1: Introduction to Git and GitHub
+# STAT 540 - Seminar 1: Introduction to Git/GitHub and course mechanics
 
 ## Learning Objectives
 
@@ -13,6 +13,7 @@ By the end of this seminar, you should
 * Have some familiarity with the GitHub browser interface and be able to use some of its basic features such as navigating the contents of a repository and creating issues
 * Have your environment set up for using Git and GitHub
 * Have practical experience with the routine Git workflow: Create, Clone, Stage, Commit, Push, and Pull
+* Learn the key steps for submission of assignments in this course
 
 ## Part 1: What is Version Control? Git? GitHub? Git Client? 
 
@@ -269,7 +270,7 @@ Click on the invite link for the Seminar 1 assignment.
 
 ![Invite link](images/invitelink.png)
 
-You'll be prompted to login to GitHub if you're not already logged in. Then you'll be taken to a page that invites you to accept the assignment. Click the green "Accept this assignment" button.
+You'll be prompted to login to GitHub if you're not already logged in. If this is your first assignment for the class, you'll first be asked to link your GitHub ID to your name in the class roster. Once that's done, you'll be taken to a page that invites you to accept the assignment. Click the green "Accept this assignment" button.
 
 ![Accept assignment](images/accept.png)
 
@@ -383,7 +384,7 @@ Notice that the content of README.md is displayed directly on the repository's h
 
 Take a moment to browse through GitHub's user interface. You can navigate through the files and their contents. You can also look at the commit history by clicking on "commit". In addition, GitHub supports a range of project management features including issues, wiki pages, and contribution statistics. You will inevitably learn more and you gain more experience!
 
-Keep in mind that if someone else wants to clone your repository, an owner (in the case of assignments that is you or a teaching team member) must first add the individual(s) to the collaborators list in order for them to have access. This is because the repo is private to only you and the teaching team. This is done by going to 'Settings' - see below.
+Keep in mind that if someone else wants to clone your repository, an owner (in the case of assignments that is you or a teaching team member) must first add the individual(s) to the collaborators list in order for them to have access. This is because by default the repo is private to only you and the teaching team. You can change this if you wish by going to 'Settings' - see below.
 
 ![GitHub add collaborators](images/add_collabs.png)
 
@@ -431,7 +432,9 @@ This is basically telling Git to ignore all these files in the list. This may co
 
 ## Part 4: Deliverables
 
-If you're still with us, and you've made the two commits to the README file in your assignment repo (one by pushing from your local machine, and another by committing directly from GitHub), then you're done! That's it. There's no extra submit button. Just make sure you complete these two commits (**and push** - verify that you can see them on GitHub like below, otherwise we won't be able to see them) by the deadline. The TAs will mark the repos based on the latest commit that occurred before the deadline (this tag is auto-generated). Any commits after the deadline will be ignored (not marked). 
+If you're still with us, and you've made the two commits to the README file in your assignment repo (one by pushing from your local machine, and another by committing directly from GitHub), then you're almost done! All that's left is to **submit** the repository URL on Canvas - copy and paste the URL of your repository as the submission for that assignment on Canvas (e.g. the link for your Seminar 1 repo will be something like `https://github.com/STAT540-UBC-2023/seminar-01-yourGitHubID`).  
+
+Just make sure you complete these two commits **and push** before the deadline - verify that you can see them on GitHub like below, otherwise we won't be able to see them either, even if you submit the correct repository link on Canvas before the deadline. The TAs will mark the repos based on the latest commit that occurred before the deadline (this tag is auto-generated). Any commits after the deadline will be ignored (not marked). 
 
 ![Verify two commits are visible](images/twocommits.png)
 
