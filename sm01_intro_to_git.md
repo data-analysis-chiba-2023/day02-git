@@ -1,9 +1,9 @@
 
-# STAT 540 - Seminar 1: Introduction to Git/GitHub and course mechanics
+# Reproducible Data Analysis Day 2: Introduction to Git/GitHub
 
 ## Learning Objectives
 
-By the end of this seminar, you should
+By the end of this class, you should
 
 - Have a conceptual understanding of what version control is and why it
   is important
@@ -22,7 +22,7 @@ By the end of this seminar, you should
 All these terms might seem a little daunting at first, but don’t worry,
 all these things were invented to make things easier for you. There is a
 bit of a learning curve if you have no previous experience, but rest
-assured, this seminar has been carefully designed to walk you through
+assured, this class has been carefully designed to walk you through
 everything you need to know.
 
 ### Git Basics
@@ -137,7 +137,7 @@ appropriate software. In this section, we will walk you through: 1.
 Installing Git, 2. Registering for a GitHub account, 3. Setting up an
 SSH key, 4. Talking to Git via RStudio.
 
-### 1. Install Git (contains excerpts from [Ch. 7 of Happy Git and GitHub for the useR](http://happygitwithr.com/install-git.html))
+### 1. Install Git (contains excerpts from [Ch. 6 of Happy Git and GitHub for the useR](http://happygitwithr.com/install-git.html))
 
 You need Git, so you can use it at the command line and so RStudio can
 call it. If there’s any chance it’s installed already, verify that,
@@ -151,7 +151,7 @@ quotation, press enter.
 
 ``` bash
 git --version
-## git version 2.33.1
+## git version 2.39.2
 ```
 
 If you see something like `git: command not found`, proceed to the
@@ -255,7 +255,7 @@ sudo yum install git
 [A comprehensive list](https://git-scm.com/download/linux) for various
 Linux and Unix package managers.
 
-### 2. Register for a GitHub account (contains excerpts from [Ch. 5 of Happy Git and GitHub for the useR](http://happygitwithr.com/install-git.html))
+### 2. Register for a GitHub account (contains excerpts from [Ch. 6 of Happy Git and GitHub for the useR](http://happygitwithr.com/install-git.html))
 
 If you don’t have a GitHub account already, register for one at
 [GitHub](https://github.com). It’s free!
@@ -286,7 +286,7 @@ first time.
 - [What happens when I change my
   username?](https://help.github.com/articles/what-happens-when-i-change-my-username/)
 
-### 3. Introduce yourself to Git (contains excerpts from [Ch 8](http://happygitwithr.com/hello-git.html) of [Happy Git and GitHub for the useR](http://happygitwithr.com/))
+### 3. Introduce yourself to Git (contains excerpts from [Ch 7](http://happygitwithr.com/hello-git.html) of [Happy Git and GitHub for the useR](http://happygitwithr.com/))
 
 First, you want to introduce yourself to Git. The information you enter
 here will constitute the user stamp for each commit you make. That way,
@@ -304,7 +304,7 @@ git config --global --list
 substituting your github username and the email associated with your
 GitHub account.
 
-### 4. Generate a Personal access token for HTTPS (contains excerpts from [Ch 9](https://happygitwithr.com/https-pat.html) of [Happy Git and GitHub for the useR](http://happygitwithr.com/))
+### 4. Authenticate with SSH (contains excerpts from [Ch 10](https://happygitwithr.com/ssh-keys.html) of [Happy Git and GitHub for the useR](http://happygitwithr.com/))
 
 When we interact with a remote Git server, such as GitHub, we have to
 include credentials in the request. This proves we are a specific GitHub
@@ -313,51 +313,11 @@ user, who’s allowed to do whatever we’re asking to do.
 Git can communicate with a remote server using one of two protocols,
 HTTPS or SSH, and the different protocols use different credentials.
 
-Here we describe the credential setup for the HTTPS protocol, which is
-what we recommend if you have no burning reason to pick SSH (if so, head
-to [Ch 10 of Happy Git and GitHub for the
-useR](https://happygitwithr.com/ssh-keys.html)). With HTTPS, we will use
-a personal access token (PAT).
+For this course, we will use SSH.
 
-Let it be known that the password that you use to login to GitHub’s
-website is NOT an acceptable credential when talking to GitHub as a Git
-server. This was possible in the past (and may yet be true for other Git
-servers), but those days are over at GitHub. You can learn more in their
-blog post [Token authentication requirements for Git
-operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
+SSH keys provide a more secure way of logging into a server than using a password alone. While a password can eventually be cracked with a brute force attack, SSH keys are nearly impossible to decipher by brute force alone. Generating a key pair provides you with two long strings of characters: a public and a private key. You can place the public key on any server (like GitHub!), and then unlock it by connecting to it with a client that already has the private key (your computer!). When the two match up, the system unlocks without the need for a password. You can increase security even more by protecting the private key with a passphrase.
 
-Here’s the error you’ll see if you try to do that now:
-
-    remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
-    remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
-    fatal: Authentication failed for 'https://github.com/OWNER/REPO.git/'
-
-This is a very minimal account of getting and storing a PAT. This might
-be all you need when you’re first getting yourself set up. If you run
-into trouble, ask a TA, and refer to the detailed description in [Ch 9
-of Happy Git and GitHub for the
-useR](https://happygitwithr.com/https-pat.html).
-
-Go to <https://github.com/settings/tokens> and click “Generate token”.
-
-Look over the scopes; I highly recommend selecting “repo”, “user”, and
-“workflow”.
-
-Click “Generate token”.
-
-Copy the generated PAT to your clipboard. Leave that browser window open
-and available for a little while, so you can come back to copy the PAT.
-**Once you close the window, you won’t be able to see the PAT** (but you
-can generate a new one). You’ll want to store the PAT securely, like in
-a password manager (NOT in a repo that gets pushed to GitHub!!) so you
-can reuse it until it expires.
-
-Provide this PAT next time a Git operation asks for your password (this
-should be when we are ready to perform the push step).
-
-You should be able to work with GitHub now, i.e. push and pull, without
-reentering the PAT each time (until the PAT expires, at which point
-you’ll need to reauthenticate with a new one).
+The instructor will help you set up your SSH keys, but for additional, detailed instructions, please see [Set up keys for SSH](https://happygitwithr.com/ssh-keys.html) of of [Happy Git and GitHub for the useR](http://happygitwithr.com/).
 
 #### Set the default branch name to main
 
@@ -403,22 +363,21 @@ Note that everything that can be done using RStudio (or any other Git
 Client), can also be done via the shell. Here we provide instructions
 for RStudio environment for a more guided experience.
 
-If you’re interested, check out [this
-post](http://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html)
+If you’re interested, check out [these workshop materials from Software Carpentry](https://swcarpentry.github.io/git-novice)
 on using Git in the shell. It is definitely a worthwhile learning
 experience if you want to dive deeper into the Git world.
 
 ### Overview
 
-A repository is simply a directory for your project. It is no different
+A **repository** is simply a directory for your project. It is no different
 from any other directories on your laptop, except that Git knows about
 it and keeps a complete historical record of every change that has been
 “committed”.
 
 When a repository is stored on GitHub, it is called the “remote”
-repository. You can then “clone” this repository onto your laptop. The
-copy on your laptop is then called the “local” repository. “Pushing” and
-“pulling” are operations for keeping the local and remote repositories
+repository. You can then **“clone”** this repository onto your laptop. The
+copy on your laptop is then called the “local” repository. **“Pushing”** and
+**“pulling”** are operations for keeping the local and remote repositories
 in sync with each other.
 
 For example, You can modify codes in your “local” repository and then,
@@ -432,25 +391,20 @@ yet. Just get the overall picture for now. You’ll gain a much deeper
 understanding once we start trying things out for real, starting now!
 
 We are going to start by creating a brand new repository for this
-seminar. We will use this repository to illustrate how to start an
+class. We will use this repository to illustrate how to start an
 assignment for this course. To complete the deliverable for this
-seminar, follow these steps to push new files to this repository.
+class, follow these steps to push new files to this repository.
 
 ### Create a new assignment repository
 
 Here we are going to create a new **assignment** repository. To start a
-new assignment, you’ll need an assignment invite link. You’ll have one
-of these for each individual deliverable, and one for the group project.
-You can find these in Canvas.
+new assignment, you’ll need an assignment invite link, which will be provided on Moodle.
 
-Log into Canvas and navigate to our course page. Go to the Assignments
-tab, and find the ‘Seminar 1’ item - click on it.
+Log into Moodle and navigate to our course page. Under the main "Course" tab, click on "Day 2: Git and GitHub".
+
+Click on the link that says "First repo".
 
 ![Canvas](images/canvas.png)
-
-Click on the invite link for the Seminar 1 assignment.
-
-![Invite link](images/invitelink.png)
 
 You’ll be prompted to login to GitHub if you’re not already logged in.
 If this is your first assignment for the class, you’ll first be asked to
@@ -467,8 +421,7 @@ browser.
 
 ![Creating repo](images/creatingrepo.png)
 
-When your repo is ready, you’ll see a page that has a link to it. Note
-that the assignment due date is listed.
+When your repo is ready, you’ll see a page that has a link to it. If there is a due date for an assignment, it will be shown here.
 
 ![Repo ready](images/repoready.png) Follow the link. Congratulations!
 This is the web page of your new repository on Github. Using the GitHub
@@ -476,11 +429,10 @@ website, you will be able to browse your files directly inside of an
 internet browser (although so far it is empty since we haven’t added any
 files). Notice that this repo is labeled ‘Private’. It is only
 accessible to you, and to the teaching team. No one else can see it.
-You’ll get to shared repositories when we start the group projects.
 
 ![Repository created screenshot](images/create_repository_success.png)
 
-If you cannot create a repository, get help from one of the TAs.
+If you cannot create a repository, get help from the instructor.
 
 *This step is specific to this course. If instead you would like to
 create a general new repository (that is not an assignment for this
@@ -492,25 +444,25 @@ showcase your work to the public.*
 
 ### Clone
 
-Next, we want to clone this repository into your laptop so that you have
+Next, we want to **clone** this repository into your laptop so that you have
 a local copy of the repository. This is how you can make changes to the
 repository on your machine.
 
 Make sure you have the latest version of RStudio installed before you
 start.
 
-Copy the https URL from your GitHub repository website. It will be
+Copy the **SSH** (not HTTPS, since we set up authentication with SSH) link from your GitHub repository website. It will be
 something like
-`https://github.com/STAT540-UBC-2022/seminar-01-yourgithubID.git` See
+`git@github.com:data-analysis-chiba-2023/first-repo-joelnitta.git` See
 below.
 
 ![Repository link screenshot](images/create_repository_success_link.png)
 
 **Important Note:** Unlike in this example, where we started with an
-empty repository, for some future deliverables, the repository created
+empty repository, for some future assignments, the repository created
 for you will already contain files. In that case, **to find the
 “repository URL”, locate the green “Code” button on the upper right
-corner of the file list as shown below.**
+corner of the file list as shown below. Be sure to select "SSH", since that is how we have set up your authentication method.**
 
 ![GitHub clone](images/clone.png)
 
@@ -522,7 +474,7 @@ Next, in RStudio, start a new Project:
 ![Create new project screenshot](images/create_new_rstudio_project.png)
 
 Do you NOT see an option to get the Project from Version Control? Go to
-[chapter 14 of Happy Git and GitHub for the
+[chapter 13 of Happy Git and GitHub for the
 useR](http://happygitwithr.com/rstudio-see-git.html) for tips on how to
 help RStudio find Git.
 
@@ -530,7 +482,7 @@ Take charge of – or at least notice! – the local directory for the
 Project. A common rookie mistake is to have no idea where you are saving
 files or what your working directory is. Pay attention. Be intentional.
 Personally, I would organize all your repos for this course in one
-directory, with subfolders for seminars, homework, project, etc.
+directory, with subfolders for classs, homework, project, etc.
 
 Check “Open in new session” so that RStudio will open your new project
 in a new window. Click “Create Project”.
@@ -598,7 +550,7 @@ is something you don’t get from only staging the files.
 You can commit by clicking Tools \> Version Control \> Commit (or hit
 the Commit button in the Git pane). Notice the changes for each file can
 be viewed in the popup window. Enter a commit message to describe your
-change. I put “Add README.md and the RStudio project file to repository”
+change. I put “Add README.md and the RStudio project file”
 for mine. All your staged files will be included in this commit. Click
 “Commit” and “Close”.
 
@@ -613,7 +565,7 @@ repository.** This allows you to create a record of changes while being
 offline. This also shields you from complications that may arise when
 merging with the remote repository (until you decide to push). This is
 something that confuses a lot of beginners. Take a moment to think about
-this. If in doubt, ask a TA and clarify.
+this. If in doubt, ask the instructor.
 
 ### Push
 
@@ -630,10 +582,10 @@ Control-\>Push Branch).
 
 ![Push](images/push.png)
 
-You should see this pop-up in RStudio.
+You should see this pop-up in RStudio (with your GitHub username).
 
     >>> git push origin HEAD:refs/heads/main
-    To https://github.com/STAT540-UBC-2022/seminar-01-teststudentstat540.git
+    To github.com:data-analysis-chiba-2023/first-repo-username.git
      * [new branch]      HEAD -> main
 
 Now, go back to your repository page on [GitHub](https://github.com/).
@@ -727,48 +679,25 @@ don’t commit data in txt files, we could add the line `*.txt` to our
 as well as more information about their usage
 [here](https://github.com/github/gitignore).
 
-## Part 4: Deliverables
+## Part 4: Homework assignment
 
-If you’re still with us, and you’ve made the two commits to the README
-file in your assignment repo (one by pushing from your local machine,
-and another by committing directly from GitHub), then you’re almost
-done! All that’s left is to **submit** the repository URL on Canvas -
-copy and paste the URL of your repository as the submission for that
-assignment on Canvas (e.g. the link for your Seminar 1 repo will be
-something like
-`https://github.com/STAT540-UBC-2023/seminar-01-yourGitHubID`).
+We have now worked through the complete cycle of cloning, committing changes, and
+pushing changes to the remote.
 
-Just make sure you complete these two commits **and push** before the
-deadline - verify that you can see them on GitHub like below, otherwise
-we won’t be able to see them either, even if you submit the correct
-repository link on Canvas before the deadline. The TAs will mark the
-repos based on the latest commit that occurred before the deadline (this
-tag is auto-generated). Any commits after the deadline will be ignored
-(not marked).
+For your homework assignment, you will practice this one more time. Please edit
+the file `git_facts.md` by deleting the underscores and filling in the blanks
+with the correct words. Once you have done so, commit your changes and push to
+the remote. Be sure to do this BY THE DEADLINE, or your work will not be
+counted.
 
-![Verify two commits are visible](images/twocommits.png)
+I will repeat this part because it's important: you must both commit the changes
+locally **and push to the remote** before the deadline -- verify that you can see
+your changes on GitHub, otherwise your instructor won’t be able to
+see them either, even if you fill in the blanks correctly. Your grade will be
+based on the latest commit that occurred before the deadline (this tag is
+auto-generated). Any commits after the deadline will be ignored (not scored).
 
-## Final notes and some additional resources
-
-Final recommendations (excerpt from [Ch. 26 of Happy Git and GitHub for
-the useR](http://happygitwithr.com/burn.html)):
-
-- Commit early and often.
-- Push to a remote, like GitHub, often.
-- The state of things on GitHub is your new “worst case scenario”.
-- If you really screw things up locally, copy all the files (or the ones
-  that have changed) to a safe place.
-- Usually your files are JUST FINE. But it is easy to goof up the Git
-  infrastructure when you’re new at this. And it can be hard to get that
-  straightened out on your own.
-- Rename the existing local repo as a temporary measure, i.e. before you
-  do something radical, like delete it.
-- Clone the repo from GitHub to your local machine. You are back to a
-  happy state.
-- Copy all relevant files back over from your safe space. The ones whose
-  updated state you need to commit.
-- Stage and commit. Push.
-- Carry on with your life.
+## Additional resources
 
 Here are some resources in case you want to learn more.
 
@@ -778,8 +707,11 @@ Here are some resources in case you want to learn more.
 
 ## Attributions
 
-This seminar was oringally developed by [Eric
-Chu](https://github.com/echu113) with materials adapted from [Happy Git
-and GitHub for the useR](http://happygitwithr.com/) by [Dr. Jenny
-Bryan](https://github.com/jennybc). It was later modified extensively by
-Keegan Korthauer.
+These materials were modified by Joel H. Nitta from those posted at
+https://stat540-ubc.github.io/ under the 
+[Attribution-NonCommercial 4.0 International license](https://creativecommons.org/licenses/by-nc/4.0/).
+
+This class was originally developed by [Eric Chu](https://github.com/echu113)
+with materials adapted from [Happy Git and GitHub for the useR](http://happygitwithr.com/)
+by [Dr. Jenny Bryan](https://github.com/jennybc).
+It was later modified extensively by Keegan Korthauer.
