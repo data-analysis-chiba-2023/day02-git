@@ -718,20 +718,35 @@ as well as more information about their usage
 
 ## Part 4: Homework assignment
 
-We have now worked through the complete cycle of cloning, committing changes, and
-pushing changes to the remote.
+We have now worked through the complete cycle of cloning, committing changes,
+and pushing changes to the remote. For your homework assignment, you will
+practice this one more time.
 
-For your homework assignment, you will practice this one more time. Please edit
-the file `git_facts.md` by deleting the underscores and filling in the blanks
-with the correct words. Once you have done so, commit your changes and push to
-the remote. Be sure to do this BY THE DEADLINE, or your work will not be
-counted.
+First, go to Moodle, click on the Day 2 Homework assignment, and click on the
+link to accept the assignment. This will create the repo in your GitHub account.
+
+![Location of Day 2 homework](images/day2_homework.png)
+
+![Location of Day 2 homework link](images/day2_homework_link.png)
+
+As we did before, clone the remote repo to your local machine. Then, edit the
+file `git_facts.md` by deleting the underscores and filling in the blanks with
+the correct words. Once you have done so, commit your changes and push to the
+remote. 
+
+Next, go to Moodle and submit your assignment there by clicking "提出物をアップロード・入力する" and entering the URL of your
+repo. For this assignment, mine looks like this:
+`https://github.com/data-analysis-chiba-2023/day02-git-joelnitta`
+
+![Location of Day 2 homework link](images/day2_enter_url.png)
+
+Be sure to do this BY THE DEADLINE, or your work will not be counted.
 
 I will repeat this part because it's important: you must both commit the changes
-locally **and push to the remote** before the deadline -- verify that you can see
-your changes on GitHub, otherwise your instructor won’t be able to
-see them either, even if you fill in the blanks correctly. Your grade will be
-based on the latest commit that occurred before the deadline (this tag is
+locally **and push to the remote** before the deadline -- verify that you can
+see your changes on GitHub, otherwise your instructor won’t be able to see them
+either, even if you fill in the blanks correctly. Your grade will be based on
+the latest commit that occurred before the deadline (this tag is
 auto-generated). Any commits after the deadline will be ignored (not scored).
 
 ## Additional resources
