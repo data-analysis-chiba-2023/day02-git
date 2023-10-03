@@ -313,11 +313,48 @@ user, who’s allowed to do whatever we’re asking to do.
 Git can communicate with a remote server using one of two protocols,
 HTTPS or SSH, and the different protocols use different credentials.
 
-For this course, we will use SSH.
+Here we describe the credential setup for the HTTPS protocol, which is
+what we recommend if you have no burning reason to pick SSH (if so, head
+to [Ch 10 of Happy Git and GitHub for the
+useR](https://happygitwithr.com/ssh-keys.html)). With HTTPS, we will use
+a personal access token (PAT).
 
-SSH keys provide a more secure way of logging into a server than using a password alone. While a password can eventually be cracked with a brute force attack, SSH keys are nearly impossible to decipher by brute force alone. Generating a key pair provides you with two long strings of characters: a public and a private key. You can place the public key on any server (like GitHub!), and then unlock it by connecting to it with a client that already has the private key (your computer!). When the two match up, the system unlocks without the need for a password. You can increase security even more by protecting the private key with a passphrase.
+Let it be known that the password that you use to login to GitHub’s
+website is NOT an acceptable credential when talking to GitHub as a Git
+server. This was possible in the past (and may yet be true for other Git
+servers), but those days are over at GitHub. You can learn more in their
+blog post [Token authentication requirements for Git
+operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
-The instructor will help you set up your SSH keys, but for additional, detailed instructions, please see [Set up keys for SSH](https://happygitwithr.com/ssh-keys.html) of of [Happy Git and GitHub for the useR](http://happygitwithr.com/).
+Here’s the error you’ll see if you try to do that now:
+
+    remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+    remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+    fatal: Authentication failed for 'https://github.com/OWNER/REPO.git/'
+
+This is a very minimal account of getting and storing a PAT. This might
+be all you need when you’re first getting yourself set up. If you run
+into trouble, ask the instructor, and refer to the detailed description in [Ch 9
+of Happy Git and GitHub for the
+useR](https://happygitwithr.com/https-pat.html).
+
+Go to <https://github.com/settings/tokens> and click “Generate token” (or use `usethis::create_github_token()` from R).
+
+Look over the scopes; I highly recommend selecting “repo”, “user”, and
+“workflow”.
+
+Click “Generate token”.
+
+Copy the generated PAT to your clipboard. Leave that browser window open
+and available for a little while, so you can come back to copy the PAT.
+**Once you close the window, you won’t be able to see the PAT** (but you
+can generate a new one). You’ll want to store the PAT securely, like in
+a password manager (NOT in a repo that gets pushed to GitHub!!) so you
+can reuse it until it expires.
+
+Next, you need to save your PAT to a secure place on your computer and configure git to use this for authentication. We will do this in R.
+
+First, install the "gitcreds" R package with `install.packages("gitcreds")`. Next, run `gitcreds::gitcreds_set()` and enter your PAT when prompted. That's it - now you should be able to communicate with GitHub without providing your password (or token) every time.
 
 #### Set the default branch name to main
 
@@ -451,9 +488,9 @@ repository on your machine.
 Make sure you have the latest version of RStudio installed before you
 start.
 
-Copy the **SSH** (not HTTPS, since we set up authentication with SSH) link from your GitHub repository website. It will be
+Copy the **HTTPS** (not SSH, since we set up authentication with your PAT) link from your GitHub repository website. It will be
 something like
-`git@github.com:data-analysis-chiba-2023/first-repo-joelnitta.git` See
+`https://github.com/data-analysis-chiba-2023/first-repo-joelnitta.git` See
 below.
 
 ![Repository link screenshot](images/create_repository_success_link.png)
@@ -462,7 +499,7 @@ below.
 empty repository, for some future assignments, the repository created
 for you will already contain files. In that case, **to find the
 “repository URL”, locate the green “Code” button on the upper right
-corner of the file list as shown below. Be sure to select "SSH", since that is how we have set up your authentication method.**
+corner of the file list as shown below. Be sure to select "HTTPS", since that is how we have set up your authentication method.**
 
 ![GitHub clone](images/clone.png)
 
