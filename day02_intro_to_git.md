@@ -518,8 +518,8 @@ help RStudio find Git.
 Take charge of – or at least notice! – the local directory for the
 Project. A common rookie mistake is to have no idea where you are saving
 files or what your working directory is. Pay attention. Be intentional.
-Personally, I would organize all your repos for this course in one
-directory, with subfolders for classs, homework, project, etc.
+
+This course will involve creating multiple projects. **I recommend creating a folder called "data-analysis-course" on the desktop, and putting each project in there**. Then you can easily find them later.
 
 Check “Open in new session” so that RStudio will open your new project
 in a new window. Click “Create Project”.
